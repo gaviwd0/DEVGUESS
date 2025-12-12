@@ -22,12 +22,6 @@ interface CellProps {
   delay?: number;
 }
 
-const getLetterState = (letter: string, index: number, solution: string): LetterState => {
-  if (solution[index] === letter) return LetterState.CORRECT;
-  if (solution.includes(letter)) return LetterState.PRESENT;
-  return LetterState.ABSENT;
-};
-
 // Robust check logic handling duplicates
 const checkGuess = (guess: string, solution: string): LetterState[] => {
   const solutionChars = solution.split('');
@@ -133,7 +127,7 @@ const Row: React.FC<RowProps> = ({ guess, solution, isCurrent, length }) => {
   );
 };
 
-export const Grid: React.FC<GridProps> = ({ currentGuess, guesses, turn, solution }) => {
+export const Grid: React.FC<GridProps> = ({ currentGuess, guesses, solution }) => {
   const empties = 
     guesses.length < MAX_CHALLENGES - 1 
     ? Array.from({ length: MAX_CHALLENGES - 1 - guesses.length }) 

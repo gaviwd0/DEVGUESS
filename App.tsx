@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Grid } from './components/Grid';
 import { Keyboard } from './components/Keyboard';
 import { Modal } from './components/Modal';
