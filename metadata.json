@@ -1,0 +1,5 @@
+{
+  "name": "DevGuess",
+  "description": "A Wordle-like game for software developers where you guess the tech term based on its definition.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevGuess</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['Fira Code', 'monospace'],
+            },
+            colors: {
+              game: {
+                correct: '#22c55e',
+                present: '#eab308',
+                absent: '#4b5563',
+                base: '#1f2937',
+                dark: '#111827',
+                light: '#f3f4f6'
+              }
+            },
+            animation: {
+              'pop': 'pop 0.1s ease-in-out',
+              'shake': 'shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both',
+              'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
+              'fade-in': 'fadeIn 0.8s ease-out both',
+              'reveal-correct': 'revealCorrect 0.6s ease-in-out both',
+              'reveal-present': 'revealPresent 0.6s ease-in-out both',
+              'reveal-absent': 'revealAbsent 0.6s ease-in-out both',
+            },
+            keyframes: {
+              pop: {
+                '0%': { transform: 'scale(0.8)', opacity: '0' },
+                '40%': { transform: 'scale(1.1)', opacity: '1' },
+                '100%': { transform: 'scale(1)', opacity: '1' },
+              },
+              shake: {
+                '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(20px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' }
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' }
+              },
+              revealCorrect: {
+                '0%': { transform: 'rotateX(0)', backgroundColor: 'transparent', borderColor: '#6b7280' },
+                '49%': { backgroundColor: 'transparent', borderColor: '#6b7280' },
+                '50%': { transform: 'rotateX(90deg)', backgroundColor: '#22c55e', borderColor: '#22c55e' },
+                '100%': { transform: 'rotateX(0)', backgroundColor: '#22c55e', borderColor: '#22c55e' }
+              },
+              revealPresent: {
+                '0%': { transform: 'rotateX(0)', backgroundColor: 'transparent', borderColor: '#6b7280' },
+                '49%': { backgroundColor: 'transparent', borderColor: '#6b7280' },
+                '50%': { transform: 'rotateX(90deg)', backgroundColor: '#eab308', borderColor: '#eab308' },
+                '100%': { transform: 'rotateX(0)', backgroundColor: '#eab308', borderColor: '#eab308' }
+              },
+              revealAbsent: {
+                '0%': { transform: 'rotateX(0)', backgroundColor: 'transparent', borderColor: '#6b7280' },
+                '49%': { backgroundColor: 'transparent', borderColor: '#6b7280' },
+                '50%': { transform: 'rotateX(90deg)', backgroundColor: '#4b5563', borderColor: '#4b5563' },
+                '100%': { transform: 'rotateX(0)', backgroundColor: '#4b5563', borderColor: '#4b5563' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #111827;
+        color: white;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "vite": "https://esm.sh/vite@^7.2.7",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
